@@ -1,6 +1,4 @@
--- SQLBook: Code
--- Migration number: 0001 	 2026-06-04T18:35:50.679Z
--- Migration number: 0001 	 2026-06-04T18:35:50.679Z
+-- Migration number: 0001 	 2026-07-13T16:45:10.643Z
 
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

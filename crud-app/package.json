@@ -2,10 +2,15 @@
 	"name": "crud-app",
 	"type": "module",
 	"scripts": {
-		"dev": "wrangler dev",
+		"dev": "wrangler dev --config ./config/wrangler.jsonc",
 		"deploy": "wrangler deploy --config ./config/wrangler.jsonc --minify --env production",
 		"push-prod-env": "wrangler secret bulk .env --cwd ./config --env production",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings --config ./config/wrangler.jsonc",
+		"create-migration": "wrangler d1 migrations create user-db --config ./config/wrangler.jsonc",
+    "apply-migration:dev": "wrangler d1 migrations apply user-db --local --config ./config/wrangler.jsonc",
+    "apply-migration:prod": "wrangler d1 migrations apply user-db --remote --config ./config/wrangler.jsonc",
+    "list-migrations:dev": "wrangler d1 migrations list user-db --local --config ./config/wrangler.jsonc",
+    "list-migrations:prod": "wrangler d1 migrations list user-db --remote --config ./config/wrangler.jsonc"
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.8.0",

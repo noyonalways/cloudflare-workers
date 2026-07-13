@@ -1,0 +1,31 @@
+@baseUrl = https://crud-app-production.noyonrahman2003.workers.dev
+@userId = 1
+
+### Health check
+GET {{baseUrl}}/health
+
+### List all users
+GET {{baseUrl}}/users
+
+### Get user by id
+GET {{baseUrl}}/users/{{userId}}
+
+### Create user
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "noyon",
+  "email": "noyon@noyonrahman.com"
+}
+
+### Update user (partial)
+PUT {{baseUrl}}/users/{{userId}}
+Content-Type: application/json
+
+{
+  "username": "noyon_updated"
+}
+
+### Delete user
+DELETE {{baseUrl}}/users/{{userId}}
